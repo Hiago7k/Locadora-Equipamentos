@@ -5,7 +5,6 @@ import java.util.LinkedList;
 public class GerenciarClientes {
     private LinkedList<Cliente> clientes = new LinkedList<>();
 
-    // Metodo responsavel por receber um cadastro e armazenar na lista
     public void salvarCliente(Cliente cliente) {
         System.out.println("Cliente foi salvo!");
         clientes.add(cliente);
@@ -17,6 +16,7 @@ public class GerenciarClientes {
             return false;
         }
 
+        System.out.println("----- Clientes cadastrados no sistema -----");
         for (Cliente cliente : clientes) {
             cliente.dadosCliente();
         }
