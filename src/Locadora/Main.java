@@ -6,7 +6,7 @@ public class Main {
     static void main() {
         Scanner teclado = new Scanner(System.in);
         GerenciarClientes gerenciar = new GerenciarClientes();
-
+        GerenciarEquipamentos gerenciarEp = new GerenciarEquipamentos();
 
         System.out.println("***** Locadora Equipamentos *****");
 
@@ -19,7 +19,7 @@ public class Main {
             System.out.println("2 - Listar Clientes cadastrados");
             System.out.println("3 - Cadastrar Equipamentos");
             System.out.println("4 - Listar Equipamentos Disponíveis");
-            System.out.println("5 - Listar Equipamentos Indisponíveis");
+            //    System.out.println("5 - Listar Equipamentos Indisponíveis");
 
 
             System.out.println("Escolha uma opção");
@@ -48,6 +48,36 @@ public class Main {
                     break;
                 case 3:
                     // logica
+                    System.out.println("Digite o nome do equipamento");
+                    String nomeEquipamento = teclado.nextLine();
+
+                    if (nomeEquipamento.isEmpty()) {
+                        System.out.println("Nome não pode ser vazio");
+                        break;
+                    }
+
+                    System.out.println("Digite o valor da Diária");
+                    double diariaEquipamento = teclado.nextDouble();
+
+                    if (diariaEquipamento <= 0) {
+                        System.out.println("Valor diária deve ser maior que zero");
+                        break;
+                    }
+
+                    System.out.println("Digite a quantidade em estoque");
+                    int estoqueEquipamento = teclado.nextInt();
+
+                    if (estoqueEquipamento <= 0) {
+                        System.out.println("Estoque deve ser maior que 0");
+                        break;
+                    }
+
+                    Equipamento equipamento = new Equipamento(nomeEquipamento, diariaEquipamento, estoqueEquipamento);
+                    gerenciarEp.salvarEqupamento(equipamento);
+                    break;
+
+                case 4:
+                    gerenciarEp.exibirEquipamentos();
                     break;
             }
 
