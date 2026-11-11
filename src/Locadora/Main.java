@@ -11,6 +11,9 @@ public class Main {
 
         System.out.println("***** Locadora Equipamentos *****");
 
+        Cliente clienteAtual = new Cliente("Admin");
+        gerenciar.salvarCliente(clienteAtual);
+
 
         int opcao = -1;
         do {
@@ -21,6 +24,7 @@ public class Main {
             System.out.println("3 - Cadastrar Equipamentos");
             System.out.println("4 - Listar Equipamentos Disponíveis");
             System.out.println("5 - Criar uma locação");
+            System.out.println("6 - Escolher um Cliente para ser o ATUAL");
 
             //    System.out.println("5 - Listar Equipamentos Indisponíveis");
 
@@ -87,6 +91,15 @@ public class Main {
                     int idEquip = teclado.nextInt();
                     Locacao  locacao = new Locacao();
                     locacao.fazerLocacao(idEquip);
+
+                    break;
+                case 6:
+                    System.out.println("Escolha o ID de um cliente abaixo");
+                    gerenciar.exibirClientes();
+                    int idClienteAtual = teclado.nextInt();
+
+
+
 
                     break;
             }
