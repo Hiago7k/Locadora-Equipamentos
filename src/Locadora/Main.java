@@ -7,6 +7,7 @@ public class Main {
         Scanner teclado = new Scanner(System.in);
         GerenciarClientes gerenciar = new GerenciarClientes();
         GerenciarEquipamentos gerenciarEp = new GerenciarEquipamentos();
+        GerenciarLocacao gerenciarLc = new GerenciarLocacao();
 
         System.out.println("***** Locadora Equipamentos *****");
 
@@ -19,6 +20,8 @@ public class Main {
             System.out.println("2 - Listar Clientes cadastrados");
             System.out.println("3 - Cadastrar Equipamentos");
             System.out.println("4 - Listar Equipamentos Disponíveis");
+            System.out.println("5 - Criar uma locação");
+
             //    System.out.println("5 - Listar Equipamentos Indisponíveis");
 
 
@@ -47,7 +50,6 @@ public class Main {
                     gerenciar.exibirClientes();
                     break;
                 case 3:
-                    // logica
                     System.out.println("Digite o nome do equipamento");
                     String nomeEquipamento = teclado.nextLine();
 
@@ -78,6 +80,14 @@ public class Main {
 
                 case 4:
                     gerenciarEp.exibirEquipamentos();
+                    break;
+                case 5:
+
+                    System.out.printf("Digite o ID do equipamento que deseja alugar! %n");
+                    int idEquip = teclado.nextInt();
+                    Locacao  locacao = new Locacao();
+                    locacao.fazerLocacao(idEquip);
+
                     break;
             }
 
